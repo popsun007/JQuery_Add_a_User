@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Adding a User</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$('form').submit(function(){
+					for(var i=0; i < 4; i++){
+						var data = $('.inp'+i).val(); //get each text field value
+						$('.tb'+i).append(data + '<br>');    //set each value to the table
+					};
+					return false;
+				})
+				// $('.list').on('click', 'input', function(){
+				// 	var default_values = ["First Name", "Last Name", "E-mail", "Phone#"];
+				// 	for(var i=0; i<4; i++){
+				// 		$('.inp'+i).focus(function(){      
+				// 		if ($('.inp'+i).val() === default_values[i]){       //check cursor in the textbox or not
+				// 			$('.inp'+i).attr('value', "");				// if in the textbox then clear the default value 
+				// 		}												
+				// 		}).blur(function(){
+				// 			if($('.inp'+i).val() === ""){				//if cursor leave the textbox with no input
+				// 				$('.inp'+i).attr('value', default_values[i]); //set the default value back
+				// 			}
+				// 		})
+				// 	}
+				// })  
+
+
+
+				 // I wish I could make the 'for' loop above work to make my code DRY, but I could not. So I RY!
+
+				 // Although this feature can be replace by adding a 'placeholder' attribute in <input>, but just for practice JQuery purpose, I worte code below.
+
+				var first_name_def = "First Name";
+				$('.inp0').focus(function(){      
+					if ($('.inp0').val() === first_name_def){       //check cursor in the textbox or not
+						$('.inp0').attr('value', "");				// if in the textbox then clear the default value 
+					}												
+					}).blur(function(){
+						if($('.inp0').val() === ""){				//if cursor leave the textbox with no input
+							$('.inp0').attr('value', first_name_def); //set the default value back
+						}
+					})
+
+				var last_name_def = "Last Name";
+				$('.inp1').focus(function(){      
+					if ($('.inp1').val() === last_name_def){       //check cursor in the textbox or not
+						$('.inp1').attr('value', "");				// if in the textbox then clear the default value 
+					}												
+					}).blur(function(){
+						if($('.inp1').val() === ""){				//if cursor leave the textbox with no input
+							$('.inp1').attr('value', last_name_def); //set the default value back
+						}
+					})
+
+				var email_def = "E-mail";
+				$('.inp2').focus(function(){      
+					if ($('.inp2').val() === email_def){       //check cursor in the textbox or not
+						$('.inp2').attr('value', "");				// if in the textbox then clear the default value 
+					}												
+					}).blur(function(){
+						if($('.inp2').val() === ""){				//if cursor leave the textbox with no input
+							$('.inp2').attr('value', email_def); //set the default value back
+						}
+					})
+
+				var phone_def = "Phone#";
+				$('.inp3').focus(function(){      
+					if ($('.inp3').val() === phone_def){       //check cursor in the textbox or not
+						$('.inp3').attr('value', "");				// if in the textbox then clear the default value 
+					}												
+					}).blur(function(){
+						if($('.inp3').val() === ""){				//if cursor leave the textbox with no input
+							$('.inp3').attr('value', phone_def); //set the default value back
+						}
+					})
+			})
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Contact</th>
+			</tr>
+			<tr>
+				<td class="tb0"></td>
+				<td class="tb1"></td>
+				<td class="tb2"></td>
+				<td class="tb3"></td>
+			</tr>
+		</table>
+		<br><br>
+		<h1>Add User</h1>
+		<div class="break"></div>
+		<form>
+			<div class="list">
+				<p>First Name:</p>
+				<div><input class="inp0" type="text" name="first_name" value = "First Name"></div>
+				<p>Last Name:</p>
+				<div><input class="inp1" type="text" name="last_name" value="Last Name"></div>
+				<p>Email Address</p>
+				<div><input class="inp2" type="text" name="email" value="E-mail"></div>
+				<p>Contact No:</p>
+				<div><input class="inp3" type="text" name="contact" value="Phone#"></div>
+			</div>
+			<input type="submit" value="Add User">
+		</form>
+	</body>
+</html>
